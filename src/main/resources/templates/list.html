@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Product List</title>
+<link rel="stylesheet" th:href="@{/css/list.css}">
+
+</head>
+<body class="" >
+	<img class="logo" th:src="@{/image/logo.png}"/>
+    <h1> Product List</h1>
+<table class="product-table" border="1">
+        <tr>
+			<th>Code</th>
+            <th> Name</th>
+            <th> Price</th>
+			<th>Quantity</th>
+			<th>Image</th>
+			<th>Action</th>
+
+        </tr>
+        <th:block th:each="product: ${products}">
+            <tr>
+                <td th:text="${product.code}"></td>
+                <td th:text="${product.name}"></td>
+
+                <td th:text="${product.price}+' $'"></td>
+                <td th:text="${product.quantity}"></td>
+				<!--<td th:with="imagePath=${product.image}">
+					<span th:if="${product.image}">
+						<img th:src="@{/image/__${imagePath}__}" alt="Product Image" widh="30px" height="60px"/>
+
+					</span>
+					<span th:unless="${product.image}">
+					<img th:src="@{/image/no-image.png}" alt="Product Image" widh="30px" height="60px"/>
+
+					</span>
+					
+								
+				</td>
+				-->
+				<td th:with="imagePath=${product.image}">
+			<img th:src="${product.image} ?@{/image/__${imagePath}__} : @{/image/no-image.png}" alt="Product Image" widh="30px" height="60px"/>
+
+				</td>
+			</span>
+			<td>
+			     <form th:action="@{|products/${product.id}/edit|}">
+          <input type="submit" value="Edit">
+        </form>
+   
+    <form th:action="@{|products/${product.id}/delete|}" method="post">
+          <input type="submit" value="Delete">
+        </form>
+    
+				</td>
+			
+
+            </tr>
+				       
+				       
+				        </th:block>
+    </table>
+      <form th:action="@{/products/create}">
+    <input type="submit" value="AddProduct">
+  </form>
+
+
+</body>
+</html>

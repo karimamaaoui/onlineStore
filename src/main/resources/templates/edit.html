@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Edit product</h1>
+    <form th:action="@{|/products/${idP}/edit|}" th:object="${productForm}" method="post">
+        <table>
+            <tr>
+                <td><label for="">Code</label></td>
+                <td><input type="text" th:field="*{code}" /></td>
+                <td th:if="${#fields.hasErrors('code')}" th:errors="*{code}">Code Error</td>
+            </tr>
+            <tr>
+                <td><label for="">Name</label></td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+            </tr>
+            <tr>
+                <td><label for="">Price</label></td>
+                <td><input type="number" th:field="*{price}" /></td>
+                <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+            </tr>
+            <tr>
+                <td><label for="">Quantity</label></td>
+                <td><input type="number" th:field="*{quantity}" /></td>
+                <td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity Error</td>
+            </tr>
+            <tr>
+                <td><label for="">Image</label></td>
+                <td><input type="text" th:field="*{image}" readonly /></td>
+                <!-- <td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity Error</td> -->
+            </tr>
+            <tr>
+                <td><input type="submit" value="Edit"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</body>

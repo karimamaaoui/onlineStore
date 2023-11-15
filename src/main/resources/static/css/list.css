@@ -1,0 +1,29 @@
+body{
+	background-color: #f2f2f2;
+}
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+.product-table th {
+    background-color: #c5acd5;
+}
+
+h1{
+	color: #4609b9;
+	text-align: center;
+}
+
+.logo{
+	display: block;
+margin-left: auto;
+margin-right: auto;
+}
